@@ -352,7 +352,7 @@ def offline_file(path, sym):
 
 
 def get_chart(sym, interval, day=None, offline=None, today=None):
-    """Bars for one ticker, from Yahoo (range=1d for today) or a saved file."""
+    """Bars for one ticker, from Yahoo or a saved file."""
     sym = sym.upper()
     if offline:
         f = offline_file(offline, sym)
@@ -361,8 +361,10 @@ def get_chart(sym, interval, day=None, offline=None, today=None):
         except (OSError, ValueError) as e:
             raise EntryError("could not read %s: %s" % (f, e))
     else:
-        today = today or to_eastern(utc_now()).date()
-        text = yahoo_get(chart_path(sym, chart_range(day or today, today, interval), interval))
+        today = today or to_ist(utc_now()).date()
+        target_day = day or today
+        rng = chart_range(target_day, today, interval)
+        text = yahoo_get(chart_path(sym, rng, interval))
     ch = parse_chart(text, sym)
     if ch["symbol"] != yahoo_symbol(sym):
         raise EntryError("the chart file holds %s, not %s" % (ch["symbol"], sym))

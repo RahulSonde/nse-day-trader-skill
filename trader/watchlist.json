@@ -1,0 +1,148 @@
+{
+  "created_by": "trader-scanner",
+  "created_at": "2026-10-30T02:30:12Z",
+  "mode": "daily",
+  "as_of": "2026-10-28 close",
+  "universe": 52,
+  "scanned": 51,
+  "failed": 1,
+  "source": "yahoo",
+  "filters": {
+    "min_price": 50.0,
+    "min_volume": 100000
+  },
+  "note": "A scan is a list of charts that match a rule, not a list of stocks to buy.",
+  "hits": [
+    {
+      "symbol": "INFY.NS",
+      "setups": [
+        "bull_flag"
+      ],
+      "price": 1123.15,
+      "close_date": "2026-10-28",
+      "rsi": 55.3,
+      "volume": 14045904
+    },
+    {
+      "symbol": "ADANIPORTS.NS",
+      "setups": [
+        "reclaim_ma20"
+      ],
+      "price": 1761.3,
+      "close_date": "2026-10-28",
+      "rsi": 51.8,
+      "volume": 7792103
+    },
+    {
+      "symbol": "TCS.NS",
+      "setups": [
+        "bull_flag"
+      ],
+      "price": 2460.0,
+      "close_date": "2026-10-28",
+      "rsi": 63.7,
+      "volume": 3427409
+    },
+    {
+      "symbol": "LT.NS",
+      "setups": [
+        "breakout_20d",
+        "reclaim_ma20"
+      ],
+      "price": 3801.3,
+      "close_date": "2026-10-28",
+      "rsi": 56.4,
+      "volume": 1754195
+    },
+    {
+      "symbol": "M&M.NS",
+      "setups": [
+        "reclaim_ma20"
+      ],
+      "price": 2869.9,
+      "close_date": "2026-10-28",
+      "rsi": 43.2,
+      "volume": 1887510
+    },
+    {
+      "symbol": "TECHM.NS",
+      "setups": [
+        "bull_flag"
+      ],
+      "price": 1776.6,
+      "close_date": "2026-10-28",
+      "rsi": 64.8,
+      "volume": 2792374
+    },
+    {
+      "symbol": "APOLLOHOSP.NS",
+      "setups": [
+        "reclaim_ma20"
+      ],
+      "price": 8137.0,
+      "close_date": "2026-10-28",
+      "rsi": 51.5,
+      "volume": 583500
+    },
+    {
+      "symbol": "HCLTECH.NS",
+      "setups": [
+        "bull_flag"
+      ],
+      "price": 1400.5,
+      "close_date": "2026-10-28",
+      "rsi": 65.8,
+      "volume": 3093103
+    },
+    {
+      "symbol": "WIPRO.NS",
+      "setups": [
+        "bull_flag"
+      ],
+      "price": 184.5,
+      "close_date": "2026-10-28",
+      "rsi": 62.5,
+      "volume": 16861755
+    },
+    {
+      "symbol": "DRREDDY.NS",
+      "setups": [
+        "breakout_20d"
+      ],
+      "price": 1335.4,
+      "close_date": "2026-10-28",
+      "rsi": 73.8,
+      "volume": 2020768
+    },
+    {
+      "symbol": "NESTLEIND.NS",
+      "setups": [
+        "oversold"
+      ],
+      "price": 1168.0,
+      "close_date": "2026-10-28",
+      "rsi": 26.9,
+      "volume": 2196322
+    },
+    {
+      "symbol": "VEDL.NS",
+      "setups": [
+        "oversold_bounce"
+      ],
+      "price": 233.05,
+      "close_date": "2026-10-28",
+      "rsi": 37.2,
+      "volume": 10479928
+    },
+    {
+      "symbol": "TATACONSUM.NS",
+      "setups": [
+        "breakout_20d"
+      ],
+      "price": 1000.2,
+      "close_date": "2026-10-28",
+      "rsi": 55.6,
+      "volume": 1970208
+    }
+  ]
+}

@@ -3,7 +3,7 @@ name: trader-scanner
 description: >-
   Chart Scanner. Scans thousands of charts for setups: opening-range
   breakouts, flags, oversold bounces. Builds the list of US-listed common
-  stocks, ordinary shares and ADRs from Nasdaq Trader's symbol directories,
+  liquid NSE F&O symbols from the local trader/universe.txt list,
   runs a pre-market scan of daily closes (20-day closing-high breakout, bull
   flag, reclaimed the 20-day average, oversold, oversold bounce) and an
   intraday opening-range breakout scan on 5-minute bars, then writes
@@ -30,14 +30,14 @@ the scanner does not change that. It only saves you from flipping through
 python3 "${CLAUDE_SKILL_DIR}/scan.py" universe                       # -> trader/universe.txt
 python3 "${CLAUDE_SKILL_DIR}/scan.py" daily                          # before the open -> trader/watchlist.json
 python3 "${CLAUDE_SKILL_DIR}/scan.py" daily --symbols TSLA,NVDA,AMD  # or --watchlist FILE, --limit 200
-python3 "${CLAUDE_SKILL_DIR}/scan.py" orb                            # after 9:50 AM ET -> trader/watchlist.json
-python3 "${CLAUDE_SKILL_DIR}/scan.py" orb --at 10:15                 # cut the clock at 10:15 AM ET
+python3 "${CLAUDE_SKILL_DIR}/scan.py" orb                            # after 9:35 AM IST -> trader/watchlist.json
+python3 "${CLAUDE_SKILL_DIR}/scan.py" orb --at 10:15                 # cut the clock at 10:15 AM IST
 python3 "${CLAUDE_SKILL_DIR}/scan.py" orb --watchlist trader/watchlist.json --json
 ```
 
 Flags: `--min-price 5` and `--min-volume` (daily 1,000,000, orb 0),
 `--or-minutes 15`, `--max-confirm 200` (orb stage 2),
-`--now "2026-10-19 10:15"` (New York time) to pin the clock, `--offline PATH`
+`--now "2026-10-19 10:15"` (IST) to pin the clock, `--offline PATH`
 to read saved Yahoo files, `--no-write`, `--show N`, `--json`. Exit code 0
 when the scan found something, 1 when it found nothing or could not run (the
 reason is one plain line).
@@ -52,8 +52,9 @@ reason is one plain line).
 
 ## The universe
 
-`universe` downloads `nasdaqlisted.txt` and `otherlisted.txt` from
-nasdaqtrader.com/dynamic/SymDir and keeps a row when, in this order:
+`universe` writes a built-in list of liquid NSE futures-and-options symbols
+to `trader/universe.txt`, using Yahoo Finance symbols such as `RELIANCE.NS`
+and the `^NSEI` NIFTY index.
 
 1. It is not a test issue, not an ETF, not NextShares.
 2. It is a plain ticker: 1 to 5 letters, or 1 to 4 letters plus one class
@@ -101,7 +102,7 @@ listed most traded first (price times volume).
 
 ## The opening-range breakout scan (during the session)
 
-The opening range is the first `--or-minutes` (15) of the session: the 9:30,
+The opening range is the first `--or-minutes` (15) of the session: the 9:15,
 9:35 and 9:40 five-minute bars. A hit is the first completed 5-minute bar
 to CLOSE above the range high, at that bar's close time.
 
@@ -123,7 +124,7 @@ spark requests, then 200 v8 charts): 2,448 usable charts, 1,782 candidates,
 the 200 most traded checked, 119 of those broke out. For a fast answer, scan
 the daily watchlist or a list of names you trade (`--watchlist`, `--symbols`).
 
-A chart is usable only when every 5-minute bar from 9:30 to the cutoff is
+A chart is usable only when every 5-minute bar from 9:15 to the cutoff is
 there; a missing bar means a halt or a thin stock. Null closes are dropped,
 a bar off the 5-minute grid (the live tick, like 10:58:07) is dropped, and a
 bar counts only once it is complete (start + 5 minutes). Before 9:50 AM, on a
@@ -138,14 +139,14 @@ are in the calendar.
   or 5xx, one retry after a 5-second wait on a 429.
 - Partial results are said as partial: "Fetched 4,980 of 5,259 charts (279
   failed or had no data)". Never round a partial scan up to "the whole market".
-- NYSE holidays and early closes for 2026 and 2027 (nyse.com, read 2026-10-13).
+- NSE trading holidays for 2026 and the provisional 2027 calendar.
 
 ## Steps
 
 1. Once a week or so: `scan.py universe`.
 2. Before the open: `scan.py daily`. Tell the user the counts (fetched,
    liquid, scanned, hits) and the top few by setup.
-3. After 9:50 AM ET (10:15 is the classic): `scan.py orb`. Tell the user how
+3. After 9:35 AM IST (10:15 is the classic): `scan.py orb`. Tell the user how
    many usable charts broke their range and when, and that a later hit is
    closer to the price now.
 4. The user picks one chart. Hand it on: `/trader-news TICKER` (what is moving

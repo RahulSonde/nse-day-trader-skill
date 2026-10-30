@@ -1,0 +1,52 @@
+^NSEI|Nifty 50 Index
+^NSEBANK|Nifty Bank Index
+RELIANCE.NS|Reliance Industries Ltd
+TCS.NS|Tata Consultancy Services Ltd
+HDFCBANK.NS|HDFC Bank Ltd
+ICICIBANK.NS|ICICI Bank Ltd
+INFY.NS|Infosys Ltd
+SBIN.NS|State Bank of India
+BHARTIARTL.NS|Bharti Airtel Ltd
+ITC.NS|ITC Ltd
+KOTAKBANK.NS|Kotak Mahindra Bank Ltd
+LT.NS|Larsen & Toubro Ltd
+AXISBANK.NS|Axis Bank Ltd
+HINDUNILVR.NS|Hindustan Unilever Ltd
+BAJFINANCE.NS|Bajaj Finance Ltd
+MARUTI.NS|Maruti Suzuki India Ltd
+SUNPHARMA.NS|Sun Pharmaceutical Industries Ltd
+TITAN.NS|Titan Company Ltd
+TATASTEEL.NS|Tata Steel Ltd
+TMPV.NS|Tata Motors Ltd
+NTPC.NS|NTPC Ltd
+POWERGRID.NS|Power Grid Corporation of India Ltd
+M&M.NS|Mahindra & Mahindra Ltd
+ADANIENT.NS|Adani Enterprises Ltd
+ADANIPORTS.NS|Adani Ports and SEZ Ltd
+COALINDIA.NS|Coal India Ltd
+BAJAJFINSV.NS|Bajaj Finserv Ltd
+HCLTECH.NS|HCL Technologies Ltd
+WIPRO.NS|Wipro Ltd
+TECHM.NS|Tech Mahindra Ltd
+ULTRACEMCO.NS|UltraTech Cement Ltd
+GRASIM.NS|Grasim Industries Ltd
+JSWSTEEL.NS|JSW Steel Ltd
+HINDALCO.NS|Hindalco Industries Ltd
+ONGC.NS|Oil and Natural Gas Corporation Ltd
+BPCL.NS|Bharat Petroleum Corporation Ltd
+DRREDDY.NS|Dr. Reddy's Laboratories Ltd
+CIPLA.NS|Cipla Ltd
+APOLLOHOSP.NS|Apollo Hospitals Enterprise Ltd
+EICHERMOT.NS|Eicher Motors Ltd
+BAJAJ-AUTO.NS|Bajaj Auto Ltd
+HEROMOTOCO.NS|Hero MotoCorp Ltd
+DIVISLAB.NS|Divi's Laboratories Ltd
+BRITANNIA.NS|Britannia Industries Ltd
+NESTLEIND.NS|Nestle India Ltd
+TATACONSUM.NS|Tata Consumer Products Ltd
+INDUSINDBK.NS|IndusInd Bank Ltd
+BEL.NS|Bharat Electronics Ltd
+HAL.NS|Hindustan Aeronautics Ltd
+TRENT.NS|Trent Ltd
+DLF.NS|DLF Ltd
+VEDL.NS|Vedanta Ltd
